@@ -2,5 +2,5 @@
 
 # Root namespace for the Mastermind CLI game.
 module Mastermind
-  VERSION = '0.1.2'
+  VERSION = '0.1.3'
 end
