@@ -14,7 +14,7 @@ module Mastermind
       def title(text) = apply("\e[1;96m", text)
       def accent(text) = apply("\e[96m", text)
       def highlight(text) = apply("\e[1;97m", text)
-      def muted(text) = apply("\e[90m", text)
+      def muted(text) = apply("\e[37m", text)
       def success(text) = apply("\e[1;92m", text)
       def warning(text) = apply("\e[1;93m", text)
       def danger(text) = apply("\e[1;91m", text)

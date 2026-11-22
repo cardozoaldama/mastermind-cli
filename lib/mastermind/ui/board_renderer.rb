@@ -4,7 +4,7 @@ module Mastermind
   module UI
     # Renders the dark-mode Mastermind board, legend, turns, and outcome.
     class BoardRenderer
-      DIVIDER = '─' * 64
+      DIVIDER = '─' * 78
 
       def initialize(output: $stdout, theme: Theme.new)
         @output = output
@@ -83,9 +83,11 @@ module Mastermind
 
       def turn_details(turn, role)
         base = "(#{turn.feedback.exact} exact, #{turn.feedback.misplaced} misplaced)"
-        return base unless role == :cpu_guesser && turn.remaining_candidates
+        count = turn.remaining_candidates
+        return base if role != :cpu_guesser || count.nil? || turn.feedback.won?
 
-        "#{base} | #{turn.remaining_candidates} possibilities left"
+        noun = count == 1 ? 'possibility' : 'possibilities'
+        "#{base} | #{count} #{noun} left"
       end
 
       def outcome_message(session)
