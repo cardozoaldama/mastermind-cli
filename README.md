@@ -57,3 +57,8 @@ Run RuboCop (including `rubocop-performance`) to check code style and Ruby 3.4 c
 ```bash
 bundle exec rubocop
 ```
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 (GPLv3). You are free to use, modify, and redistribute it under the terms of the GPLv3, provided derivative works remain open source under the same license. See the [LICENSE](./LICENSE) file for the full text.
+
