@@ -118,10 +118,12 @@ module Mastermind
       end
 
       def render_option(option, idx, selected)
-        prefix = selected ? @theme.accent('❯') : ' '
-        line = "#{prefix} #{idx + 1}. #{option.label}"
-        @output.puts(selected ? @theme.highlight(line) : line)
-        @output.puts(@theme.muted("    #{option.description}")) unless option.description.to_s.empty?
+        text = "#{selected ? '❯' : ' '} #{idx + 1}. #{option.label}"
+        @output.puts(selected ? @theme.selected_option(text) : @theme.highlight(" #{text}"))
+        return if option.description.to_s.empty?
+
+        desc = "      #{option.description}"
+        @output.puts(selected ? @theme.accent(desc) : @theme.muted(desc))
       end
     end
   end

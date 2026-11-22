@@ -18,6 +18,7 @@ module Mastermind
       def success(text) = apply("\e[1;92m", text)
       def warning(text) = apply("\e[1;93m", text)
       def danger(text) = apply("\e[1;91m", text)
+      def selected_option(text) = apply("\e[1;30;106m", " #{text} ")
 
       def peg(color)
         return "[#{color.code}]" unless @color
